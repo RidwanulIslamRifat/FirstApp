@@ -1,41 +1,54 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/customShape.dart';
 
 void main() {
-  runApp(MaterialApp(home: MyWidget()));
+  runApp(MaterialApp(
+    debugShowCheckedModeBanner: false,
+    home: QuoteList(),
+  ));
 }
 
-class MyWidget extends StatefulWidget {
-  const MyWidget({super.key});
+class QuoteList extends StatefulWidget {
+  const QuoteList({super.key});
 
   @override
-  State<MyWidget> createState() => _MyWidgetState();
+  State<QuoteList> createState() => _QuoteListState();
 }
 
-class _MyWidgetState extends State<MyWidget> {
-  int countstate = 0;
-
+class _QuoteListState extends State<QuoteList> {
   @override
   Widget build(BuildContext context) {
+    int countstate = 0;
     return Scaffold(
-      backgroundColor: Colors.grey[900],
+      extendBodyBehindAppBar: true,
+      backgroundColor: Color.fromARGB(255, 235, 235, 235),
       appBar: AppBar(
-        title: Text(
-          'ID Card',
-          style: TextStyle(
-            // fontFamily: 'Montserrat',
-            fontWeight: FontWeight.bold,
-            fontSize: 25,
+        toolbarHeight: 170,
+        title: Text('Profile ID'),
+        centerTitle: true,
+        backgroundColor: Color.fromARGB(0, 0, 0, 0),
+        elevation: 0.0,
+        flexibleSpace: ClipPath(
+          clipper: Customshape(),
+          child: Container(
+            // height: 250,
+            width: MediaQuery.of(context).size.width,
+            // color: Colors.red,
+            decoration: const BoxDecoration(
+              // borderRadius: BorderRadius.all(Radius.circular(25)),
+              gradient: LinearGradient(
+                  begin: Alignment.bottomLeft,
+                  end: Alignment.bottomRight,
+                  colors: <Color>[Color(0xff018E47), Color(0xff36489A)]),
+            ),
           ),
         ),
-        centerTitle: true,
-        backgroundColor: Colors.grey[800],
-        elevation: 0,
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.fromLTRB(10, 30, 10, 0),
+          padding: EdgeInsets.fromLTRB(10, 200, 10, 0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
@@ -237,38 +250,6 @@ class _MyWidgetState extends State<MyWidget> {
                   )),
                 ],
               ),
-              SizedBox(
-                height: 30.0,
-              ),
-              // Row(
-              //   children: <Widget>[
-              //     Icon(
-              //       Icons.facebook,
-              //       color: Colors.grey,
-              //     ),
-              //     SizedBox(width: 10.0),
-              //     Expanded(
-              //         //updownscroll
-              //         child: Container(
-              //       height: 200,
-              //       child: SingleChildScrollView(
-              //         scrollDirection: Axis.vertical,
-              //         child: Text(
-              //           "https://www.linkedin.com/in/s-m-ridwanul-islam-rifat-b73955195/",
-              //           style: TextStyle(
-              //             fontSize: 15.0,
-              //             color: Colors.grey,
-              //             letterSpacing: 1.0,
-              //           ),
-              //         ),
-              //       ),
-              //     )),
-              //   ],
-              // ),
-              // Divider(
-              //   height: 90.0,
-              //   // color: Colors.grey,
-              // ),
               SizedBox(
                 height: 30.0,
               ),
